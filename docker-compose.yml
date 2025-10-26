@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  cvd-classification:
+    build: .
+    container_name: cvd-classification-dev
+    ports:
+      - "8888:8888"  # Jupyter notebook
+    volumes:
+      # Mount local directories to container
+      - ./data:/app/data
+      - ./notebooks:/app/notebooks
+      - ./src:/app/src
+      - ./results:/app/results
+      - ./figures:/app/figures
+      - ./models:/app/models
+    environment:
+      - PYTHONPATH=/app
+    command: jupyter notebook --ip=0.0.0.0 --port=8888 --no-browser --allow-root --NotebookApp.token='' --NotebookApp.password=''
+    stdin_open: true
+    tty: true

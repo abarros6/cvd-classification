@@ -1,0 +1,73 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Data files (don't commit large CSV files to GitHub)
+data/*.csv
+data/*.zip
+!data/.gitkeep
+
+# Models (can be large)
+models/*.pkl
+models/*.h5
+models/*.pt
+!models/.gitkeep
+
+# Results
+results/*.csv
+!results/.gitkeep
+
+# Figures
+figures/*.png
+figures/*.jpg
+figures/*.pdf
+!figures/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Environment variables
+.env
+.env.local
+
+# Kaggle credentials
+kaggle.json
+
+# Temporary files
+temp/
