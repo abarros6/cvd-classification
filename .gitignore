@@ -23,16 +23,12 @@ wheels/
 .installed.cfg
 *.egg
 
-# Jupyter Notebook
-.ipynb_checkpoints
-*.ipynb_checkpoints/
-
-# Data files (don't commit large CSV files to GitHub)
+# Data files 
 data/*.csv
 data/*.zip
 !data/.gitkeep
 
-# Models (can be large)
+# Models 
 models/*.pkl
 models/*.h5
 models/*.pt

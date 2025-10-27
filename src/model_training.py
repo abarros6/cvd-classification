@@ -117,19 +117,19 @@ def train_logistic_regression(X_train, y_train, transformation_name):
     Train Logistic Regression model.
     
     Algorithm: Linear probabilistic classifier using logistic function
-    Parameters: Default (C=1.0, max_iter=1000, solver='lbfgs')
+    Parameters: Default (C=1.0, max_iter=2000, solver='lbfgs')
     """
     print(f"\n{'='*80}")
     print(f"TRAINING: LOGISTIC REGRESSION ({transformation_name})")
     print(f"{'='*80}")
     print("Algorithm: Linear probabilistic classifier")
-    print("Parameters: C=1.0 (L2 regularization), max_iter=1000, solver='lbfgs'")
+    print("Parameters: C=1.0 (L2 regularization), max_iter=2000, solver='lbfgs'")
     
     start_time = datetime.now()
     
     model = LogisticRegression(
         random_state=42,
-        max_iter=1000,
+        max_iter=2000,
         solver='lbfgs'
     )
     model.fit(X_train, y_train)

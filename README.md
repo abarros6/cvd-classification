@@ -57,7 +57,6 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
-
 ## Usage
 
 ### Complete Pipeline
@@ -88,50 +87,41 @@ python src/evaluation.py
 python src/visualization.py
 ```
 
-### Jupyter Notebook
-For interactive analysis:
-```bash
-jupyter notebook
-# Open notebooks/exploration.ipynb
-```
-
 ## Project Structure
 
 ```
 cvd-classification/
- data/                          # Dataset and processed data
-    cardio_train.csv          # Original dataset (download required)
-    X_train.csv               # Generated training features
-    X_test.csv                # Generated test features
-    y_train.csv               # Generated training labels
-    y_test.csv                # Generated test labels
-
- src/                           # Source code modules
-    data_preprocessing.py     # Data cleaning and splitting
-    model_training.py         # Train all algorithms
-    evaluation.py             # Calculate performance metrics
-    visualization.py          # Generate plots and figures
-
- notebooks/                     # Jupyter notebooks
-    exploration.ipynb         # Interactive data analysis
-
- results/                       # Model performance results
-    model_results.csv         # Generated metrics table
-
- figures/                       # Generated visualizations
-    model_comparison.png      # Performance comparison
-    confusion_matrices.png    # Confusion matrices
-    roc_curves.png            # ROC curves
-    transformation_impact.png # Scaling effects
-    results_table.png         # Summary table
-
- models/                        # Trained model files
-    logistic_regression_*.pkl # LR models
-    svm_*.pkl                 # SVM models
-    neural_network_*.pkl      # NN models
-
- requirements.txt               # Python dependencies
- run_all.py                    # Master execution script
+├── data/                          # Dataset and processed data
+│   ├── cardio_train.csv          # Original dataset (download required)
+│   ├── X_train.csv               # Generated training features
+│   ├── X_test.csv                # Generated test features
+│   ├── y_train.csv               # Generated training labels
+│   └── y_test.csv                # Generated test labels
+│
+├── src/                           # Source code modules
+│   ├── data_preprocessing.py     # Data cleaning and splitting
+│   ├── model_training.py         # Train all algorithms
+│   ├── evaluation.py             # Calculate performance metrics
+│   └── visualization.py          # Generate plots and figures
+│
+├── results/                       # Model performance results
+│   └── model_results.csv         # Generated metrics table
+│
+├── figures/                       # Generated visualizations
+│   ├── model_comparison.png      # Combined performance comparison
+│   ├── confusion_matrices.png    # Combined confusion matrices
+│   ├── roc_curves.png            # Combined ROC curves
+│   ├── transformation_impact.png # Combined scaling effects
+│   ├── results_table.png         # Summary table
+│   └── individual_*.png          # Individual readable figures
+│
+├── models/                        # Trained model files
+│   ├── logistic_regression_*.pkl # LR models
+│   ├── svm_*.pkl                 # SVM models
+│   └── neural_network_*.pkl      # NN models
+│
+├── requirements.txt               # Python dependencies
+└── run_all.py                    # Master execution script
 ```
 
 ## Pipeline Details
@@ -168,11 +158,12 @@ Generates confusion matrices and saves results to CSV.
 
 ### 4. Visualization (`src/visualization.py`)
 Creates comprehensive visualizations:
-- Performance comparison bar charts
-- Confusion matrices for best models
-- ROC curves for all models
-- Data transformation impact analysis
+- Performance comparison bar charts (combined and individual)
+- Confusion matrices for best models (combined and individual)
+- ROC curves for all models (combined and large individual)
+- Data transformation impact analysis (combined and per-algorithm)
 - Results summary table
+- Individual readable figures for better report inclusion
 
 ## Expected Results
 
@@ -183,6 +174,23 @@ Actual performance on reduced dataset (10,000 samples):
 - **Key Finding:** Neural networks perform best on this reduced dataset
 - **Demonstrates:** Data transformations significantly impact model performance
 
+## Visualizations
+
+**Combined Figures:**
+- `model_comparison.png` - All metrics in one view
+- `confusion_matrices.png` - Top 3 models side-by-side
+- `roc_curves.png` - All ROC curves together
+- `transformation_impact.png` - All algorithms' transformation effects
+
+**Individual Figures (for reports):**
+- `individual_accuracy_comparison.png` - Clear accuracy rankings
+- `individual_precision_comparison.png` - Precision focus
+- `individual_recall_comparison.png` - Recall analysis
+- `individual_auc_roc_comparison.png` - Primary metric comparison
+- `individual_confusion_matrix_*.png` - Separate matrices for each top model
+- `individual_roc_curves_large.png` - Larger, clearer ROC plot
+- `individual_transformation_*.png` - Per-algorithm transformation impact
+
 ## Dependencies
 
 Key libraries (see `requirements.txt` for versions):
@@ -190,31 +198,8 @@ Key libraries (see `requirements.txt` for versions):
 - `numpy` - Numerical operations
 - `scikit-learn` - Machine learning algorithms
 - `matplotlib` + `seaborn` - Visualization
-- `jupyter` - Interactive notebooks
 
-## Troubleshooting
-
-**"cardio_train.csv not found"**
-- Download dataset from Kaggle and place in `data/` folder
-
-**"No module named 'sklearn'"**
-- Install dependencies: `pip install -r requirements.txt`
-
-**"Cannot load model"**
-- Run preprocessing and training steps first
-
-**SVM training time**
-- With reduced dataset (8k samples): ~20 seconds
-- Original dataset would take 2-5 minutes
-
-**Convergence warnings**
-- Normal for some algorithms on unscaled data; can be ignored
-
-## License
-
-This project is for educational purposes as part of an academic assignment.
-
-## Dataset Citation
+## Dataset
 
 ```
 Cardiovascular Disease dataset. (2019). Kaggle.
