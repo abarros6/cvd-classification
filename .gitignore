@@ -34,15 +34,33 @@ models/*.h5
 models/*.pt
 !models/.gitkeep
 
+# Assignment 2 Models
+part2/models/*.pkl
+part2/models/*.h5
+part2/models/*.pt
+part2/models/tuning_checkpoints/
+!part2/models/.gitkeep
+
 # Results
 results/*.csv
 !results/.gitkeep
+
+# Assignment 2 Results
+part2/results/*.csv
+part2/results/*.json
+!part2/results/.gitkeep
 
 # Figures
 figures/*.png
 figures/*.jpg
 figures/*.pdf
 !figures/.gitkeep
+
+# Assignment 2 Figures
+part2/figures/*.png
+part2/figures/*.jpg
+part2/figures/*.pdf
+!part2/figures/.gitkeep
 
 # IDE
 .vscode/

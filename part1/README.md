@@ -1,5 +1,7 @@
 # Cardiovascular Disease Classification
 
+## Anthony Barros - abarros6@uwo.ca - 250974431
+
 A machine learning project that implements and compares three different algorithms for cardiovascular disease prediction using patient health data.
 
 ## Quick Start
